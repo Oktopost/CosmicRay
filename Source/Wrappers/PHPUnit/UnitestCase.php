@@ -70,7 +70,7 @@ class UnitestCase extends TestCase
 			if ($this->isLoaderMethod($parameter, $method))
 			{
 				$isFound = true;
-				return $this->narrator->invoke([$this, $method->getName()]);
+				return $this->getNarrator()->invoke([$this, $method->getName()]);
 			}
 		}
 		
@@ -82,7 +82,7 @@ class UnitestCase extends TestCase
 	{
 		$narrator
 			->params()
-			->addCallback(function (\ReflectionParameter $param, bool $isFound) 
+			->addCallback(function (\ReflectionParameter $param, bool &$isFound) 
 			{
 				return $this->resolveParameter($param, $isFound); 
 			});
@@ -100,6 +100,12 @@ class UnitestCase extends TestCase
 		
 		return $this->narrator;
 	}
+	
+	protected function getTestMethod(): \ReflectionMethod
+	{
+		return new \ReflectionMethod(static::class, $this->testCaseName);
+	}
+	
 	
 	protected function runTestWrapper(): void
 	{
