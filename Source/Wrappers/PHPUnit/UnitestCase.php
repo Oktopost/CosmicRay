@@ -52,15 +52,18 @@ class UnitestCase extends TestCase
 	 */
 	private function resolveParameter(\ReflectionParameter $parameter, bool &$isFound)
 	{
-		$isFound = false;
-		$class = new \ReflectionClass($this);
+		$isFound	= false;
+		$class		= new \ReflectionClass($this);
+		$paramType	= (string)$parameter->getType();
 		
 		if ($parameter->isOptional())
 		{
 			$isFound = true;
 			return $parameter->getDefaultValue();
 		}
-		else if (!class_exists((string)$parameter->getType()))
+		else if (
+			!class_exists($paramType) &&  
+			!interface_exists($paramType))
 		{
 			return null;
 		}
