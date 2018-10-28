@@ -110,7 +110,7 @@ class UnitestCase extends TestCase
 	}
 	
 	
-	protected function runTestWrapper(): void
+	public function runTestWrapper(): void
 	{
 		$this->getNarrator()->invoke([$this, $this->testCaseName]);
 	}
