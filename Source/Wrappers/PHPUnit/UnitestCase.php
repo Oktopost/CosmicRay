@@ -2,6 +2,7 @@
 namespace CosmicRay\Wrappers\PHPUnit;
 
 
+use CosmicRay\CosmicRay;
 use Narrator\Narrator;
 use PHPUnit\Framework\TestCase;
 
@@ -53,7 +54,7 @@ class UnitestCase extends TestCase
 	private function resolveParameter(\ReflectionParameter $parameter, bool &$isFound)
 	{
 		$isFound	= false;
-		$class		= new \ReflectionClass($this);
+		$self		= new \ReflectionClass($this);
 		$paramType	= (string)$parameter->getType();
 		
 		if ($parameter->isOptional())
@@ -68,13 +69,23 @@ class UnitestCase extends TestCase
 			return null;
 		}
 		
-		foreach ($class->getMethods(\ReflectionMethod::IS_PUBLIC) as $method)
+		foreach ($self->getMethods(\ReflectionMethod::IS_PUBLIC) as $method)
 		{
 			if ($this->isLoaderMethod($parameter, $method))
 			{
 				$isFound = true;
 				return $this->getNarrator()->invoke([$this, $method->getName()]);
 			}
+		}
+		
+		$class = $parameter->getClass();
+		
+		if ($class && $class->isInstantiable()) 
+		{
+			$obj = CosmicRay::instance()->skeleton()->load($class->getName());
+			$isFound = true;
+			
+			return $obj;
 		}
 		
 		return null;
@@ -98,7 +109,7 @@ class UnitestCase extends TestCase
 		if ($this->narrator)
 			return $this->narrator;
 		
-		$this->narrator = new Narrator();
+		$this->narrator = CosmicRay::instance()->narrator();
 		$this->narrator = $this->setupNarrator($this->narrator);
 		
 		return $this->narrator;
@@ -109,6 +120,37 @@ class UnitestCase extends TestCase
 		return new \ReflectionMethod(static::class, $this->testCaseName);
 	}
 	
+	
+	protected function setUp()
+	{
+		parent::setUp();
+		CosmicRay::setupTestCase($this, $this->getName());
+	}
+	
+	protected function tearDown()
+	{
+		parent::tearDown();
+		CosmicRay::cleanUpTestCase($this, $this->getName());
+	}
+	
+	
+	public static function setUpBeforeClass()
+	{
+		parent::tearDownAfterClass();
+		CosmicRay::setupTestSuite(self::class);
+	}
+	
+	public static function tearDownAfterClass()
+	{
+		parent::tearDownAfterClass();
+		CosmicRay::cleanUpTestSuite(self::class);
+	}
+	
+	
+	public static function getSessions(): array
+	{
+		return [];
+	}
 	
 	public function runTestWrapper(): void
 	{
