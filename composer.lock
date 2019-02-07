@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9399f721735d9e643ac31d73105c9756",
+    "content-hash": "e50098fed0aebeccceb339deb1550da8",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -209,23 +209,23 @@
         },
         {
             "name": "oktopost/cartograph",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/Cartograph.git",
-                "reference": "2e27ed2bafd4a64e4ec8b9afd714e3efea7f4df8"
+                "reference": "2ac4d0492b7dcee7cd93b5a3069710a4e96b5950"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/Cartograph/zipball/2e27ed2bafd4a64e4ec8b9afd714e3efea7f4df8",
-                "reference": "2e27ed2bafd4a64e4ec8b9afd714e3efea7f4df8",
+                "url": "https://api.github.com/repos/Oktopost/Cartograph/zipball/2ac4d0492b7dcee7cd93b5a3069710a4e96b5950",
+                "reference": "2ac4d0492b7dcee7cd93b5a3069710a4e96b5950",
                 "shasum": ""
             },
             "require": {
                 "oktopost/annotation": "^1.0",
                 "php": ">=7.1",
                 "unstable-cacao/itarator": "^1.0",
-                "unstable-cacao/structura": "^1.0"
+                "unstable-cacao/structura": "^2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.2",
@@ -251,7 +251,7 @@
                     "email": "maksym@oktopost.com"
                 }
             ],
-            "time": "2018-07-06T13:22:44+00:00"
+            "time": "2019-02-06T15:40:56+00:00"
         },
         {
             "name": "oktopost/objection",
@@ -304,16 +304,16 @@
         },
         {
             "name": "oktopost/pofig",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/Pofig.git",
-                "reference": "8dc9969f730aa023558638f40865fb4cea7ea966"
+                "reference": "9c605549b05bfc7749ec1e0f42c59afaaad2d720"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/Pofig/zipball/8dc9969f730aa023558638f40865fb4cea7ea966",
-                "reference": "8dc9969f730aa023558638f40865fb4cea7ea966",
+                "url": "https://api.github.com/repos/Oktopost/Pofig/zipball/9c605549b05bfc7749ec1e0f42c59afaaad2d720",
+                "reference": "9c605549b05bfc7749ec1e0f42c59afaaad2d720",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +321,7 @@
                 "oktopost/objection": "^1.0",
                 "oktopost/skeleton": "^1.0",
                 "predis/predis": "^1.1",
-                "unstable-cacao/structura": "^1.0"
+                "unstable-cacao/structura": "^2.0.2"
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.1"
@@ -343,27 +343,27 @@
                 }
             ],
             "description": "Messaging library",
-            "time": "2018-07-01T12:15:02+00:00"
+            "time": "2019-02-06T15:32:46+00:00"
         },
         {
             "name": "oktopost/se-taco",
-            "version": "dev-master",
+            "version": "1.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/SeTaco.git",
-                "reference": "f5df74f98e8ef1af3a35b1c880f0424500ea4b23"
+                "reference": "4fba8c6320497fcabc6992a3e2ab3f29780c9420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/SeTaco/zipball/f5df74f98e8ef1af3a35b1c880f0424500ea4b23",
-                "reference": "f5df74f98e8ef1af3a35b1c880f0424500ea4b23",
+                "url": "https://api.github.com/repos/Oktopost/SeTaco/zipball/4fba8c6320497fcabc6992a3e2ab3f29780c9420",
+                "reference": "4fba8c6320497fcabc6992a3e2ab3f29780c9420",
                 "shasum": ""
             },
             "require": {
                 "facebook/webdriver": "^1.6",
                 "oktopost/cartograph": "^1.1",
                 "oktopost/objection": "^1.0",
-                "unstable-cacao/structura": "^1.0",
+                "unstable-cacao/structura": "^2.0.2",
                 "unstable-cacao/traitor": "^1.0"
             },
             "require-dev": {
@@ -385,11 +385,16 @@
                     "name": "Alexey Puchkov",
                     "email": "alexey@oktopost.com",
                     "role": "Developer"
+                },
+                {
+                    "name": "Daniel Podrabinek",
+                    "email": "dpodrabinek@oktopost.com",
+                    "role": "Developer"
                 }
             ],
             "description": "Wrapper for the package facebook/webdriver",
             "homepage": "https://github.com/Oktopost/SeTaco",
-            "time": "2019-01-23 11:10:58"
+            "time": "2019-02-07T09:11:57+00:00"
         },
         {
             "name": "oktopost/skeleton",
@@ -1033,16 +1038,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.2",
+            "version": "7.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "7c89093bd00f7d5ddf0ab81dee04f801416b4944"
+                "reference": "2cb759721e53bc05f56487f628c6b9fbb6c18746"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7c89093bd00f7d5ddf0ab81dee04f801416b4944",
-                "reference": "7c89093bd00f7d5ddf0ab81dee04f801416b4944",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2cb759721e53bc05f56487f628c6b9fbb6c18746",
+                "reference": "2cb759721e53bc05f56487f628c6b9fbb6c18746",
                 "shasum": ""
             },
             "require": {
@@ -1113,7 +1118,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-01-15T08:19:08+00:00"
+            "time": "2019-02-01T05:24:07+00:00"
         },
         {
             "name": "predis/predis",
@@ -1276,23 +1281,23 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "366541b989927187c4ca70490a35615d3fef2dce"
+                "reference": "720fcc7e9b5cf384ea68d9d930d480907a0c1a29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/366541b989927187c4ca70490a35615d3fef2dce",
-                "reference": "366541b989927187c4ca70490a35615d3fef2dce",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/720fcc7e9b5cf384ea68d9d930d480907a0c1a29",
+                "reference": "720fcc7e9b5cf384ea68d9d930d480907a0c1a29",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.0",
+                "phpunit/phpunit": "^7.5 || ^8.0",
                 "symfony/process": "^2 || ^3.3 || ^4"
             },
             "type": "library",
@@ -1328,32 +1333,35 @@
                 "unidiff",
                 "unified diff"
             ],
-            "time": "2018-06-10T07:54:39+00:00"
+            "time": "2019-02-04T06:01:07+00:00"
         },
         {
             "name": "sebastian/environment",
-            "version": "4.0.1",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "febd209a219cea7b56ad799b30ebbea34b71eb8f"
+                "reference": "6fda8ce1974b62b14935adc02a9ed38252eca656"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/febd209a219cea7b56ad799b30ebbea34b71eb8f",
-                "reference": "febd209a219cea7b56ad799b30ebbea34b71eb8f",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6fda8ce1974b62b14935adc02a9ed38252eca656",
+                "reference": "6fda8ce1974b62b14935adc02a9ed38252eca656",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.4"
+                "phpunit/phpunit": "^7.5"
+            },
+            "suggest": {
+                "ext-posix": "*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -1378,7 +1386,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2018-11-25T09:31:21+00:00"
+            "time": "2019-02-01T05:27:49+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -1773,7 +1781,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -1788,16 +1796,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.2.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "ea043ab5d8ed13b467a9087d81cb876aee7f689a"
+                "reference": "6c05edb11fbeff9e2b324b4270ecb17911a8b7ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/ea043ab5d8ed13b467a9087d81cb876aee7f689a",
-                "reference": "ea043ab5d8ed13b467a9087d81cb876aee7f689a",
+                "url": "https://api.github.com/repos/symfony/process/zipball/6c05edb11fbeff9e2b324b4270ecb17911a8b7ad",
+                "reference": "6c05edb11fbeff9e2b324b4270ecb17911a8b7ad",
                 "shasum": ""
             },
             "require": {
@@ -1833,7 +1841,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-03T14:48:52+00:00"
+            "time": "2019-01-24T22:05:03+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -1952,16 +1960,16 @@
         },
         {
             "name": "unstable-cacao/structura",
-            "version": "1.1.5",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/unstable-cacao/Structura.git",
-                "reference": "f94ba7aa5d1ffb29ddb47a3a5e911aea9ee25722"
+                "reference": "ee94145b6664359fd17a58a6533d4f38ea9ebec8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unstable-cacao/Structura/zipball/f94ba7aa5d1ffb29ddb47a3a5e911aea9ee25722",
-                "reference": "f94ba7aa5d1ffb29ddb47a3a5e911aea9ee25722",
+                "url": "https://api.github.com/repos/unstable-cacao/Structura/zipball/ee94145b6664359fd17a58a6533d4f38ea9ebec8",
+                "reference": "ee94145b6664359fd17a58a6533d4f38ea9ebec8",
                 "shasum": ""
             },
             "require": {
@@ -1991,7 +1999,7 @@
                 }
             ],
             "homepage": "https://github.com/unstable-cacao/Structura",
-            "time": "2018-11-29T14:18:38+00:00"
+            "time": "2018-12-13T09:20:32+00:00"
         },
         {
             "name": "unstable-cacao/traitor",
@@ -2091,9 +2099,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "oktopost/se-taco": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

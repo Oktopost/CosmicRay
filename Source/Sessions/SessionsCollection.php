@@ -4,6 +4,7 @@ namespace CosmicRay\Sessions;
 
 use CosmicRay\ITestSession;
 use CosmicRay\Base\Sessions\ISessionCollection;
+use CosmicRay\Sessions\Dependencies\Tree;
 use CosmicRay\Wrappers\PHPUnit\UnitestCase;
 
 use Narrator\INarrator;
@@ -24,44 +25,94 @@ class SessionsCollection implements ISessionCollection
 	private $sessions = [];
 	
 	
-	/**
-	 * @param string[] $newList
-	 * @return ITestSession[]
-	 */
-	private function loadNewList(array $newList): array
+	
+	private function loadDependencies(ITestSession $session, array &$allSessions): void
 	{
-		$list = [];
-		$toLoad = array_combine($newList, $newList);
-		
-		while ($toLoad)
+		foreach ($session->dependencies() as $dependency)
 		{
-			foreach ($toLoad as $className)
+			$name = get_class($dependency);
+			
+			if (isset($allSessions[$name]))
+				continue;
+			
+			if (isset($this->sessions[$name]))
 			{
-				if (isset($this->sessions[$className]))
-				{
-					unset($toLoad[$className]);
-					$list[$className] = $this->sessions[$className];
-				}
-				else
-				{
-					unset($toLoad[$className]);
-					
-					/** @var ITestSession $session */
-					$session = $this->skeleton->load($className);
-					$list[$className] = $session;
-					
-					$dependencies = $session->dependencies();
-					$dependencies = array_combine($dependencies, $dependencies);
-					
-					$toLoad = array_merge(
-						array_diff_key($dependencies, $list),
-						$toLoad
-					);
-				}
+				$allSessions[$name] = $this->sessions[$name];
+				continue;
+			}
+			
+			$allSessions[$name] = $this->skeleton->load($dependency);
+			$this->loadDependencies($allSessions[$name], $allSessions);
+		}
+	}
+	
+	private function getNames(array $sessions = []): array
+	{
+		$result = [];
+		
+		if (!$sessions)
+			return $result;
+		
+		foreach ($sessions as $session)
+		{
+			if ($session instanceof ITestSession)
+			{
+				$result[] = get_class($session);
+			}
+			else
+			{
+				$result[] = $session;
 			}
 		}
 		
-		return $list;
+		return $result;
+	}
+	
+	
+	/**
+	 * @param string[]|ITestSession[] $sessions
+	 * @return string[]
+	 */
+	private function getOrderedList(array $sessions): array
+	{
+		$newSessionsList = [];
+		$tree = new Tree();
+		
+		foreach ($sessions as $session)
+		{
+			if ($session instanceof ITestSession)
+			{
+				$name = get_class($session);
+				$newSessionsList[$name] = $session;
+			}
+			else
+			{
+				$name = $session;
+				
+				if (isset($this->sessions[$name]))
+				{
+					$newSessionsList[$name] = $this->sessions[$name];
+				}
+				else
+				{
+					$newSessionsList[$name] = $this->skeleton->load($session);
+					$this->loadDependencies($session, $newSessionsList);
+				}
+			}
+			
+			$tree->add($name, $this->getNames($session->dependencies()));
+		}
+		
+		$toLoadNames = $tree->resolve();
+		
+		$result = [];
+		
+		foreach ($toLoadNames as $name)
+		{
+			$result[] = $newSessionsList[$name];
+		}
+		
+		return $result;
 	}
 	
 	private function getNarratorForParams(...$params): INarrator
@@ -104,11 +155,11 @@ class SessionsCollection implements ISessionCollection
 		}
 	}
 	
+	
 	private function invokeOnAll(string $method, ...$params): void
 	{
 		$this->invokeOnSet($this->sessions, $method, ...$params);
 	}
-	
 	
 	public function __construct(INarrator $narrator, ISkeletonSource $skeleton)
 	{
@@ -117,14 +168,14 @@ class SessionsCollection implements ISessionCollection
 	}
 	
 	
-	public function setupSessions(array $newList): void
+	public function setupSessions(array $sessions): void
 	{
-		$newList = $this->loadNewList($newList);
+		$sessions = $this->getOrderedList($sessions);
 		
-		$added = array_diff_key($newList, $this->sessions);
-		$removed = array_diff_key($this->sessions, $newList);
+		$added = array_diff_key($sessions, $this->sessions);
+		$removed = array_diff_key($this->sessions, $sessions);
 		
-		$this->sessions = $newList;
+		$this->sessions = $sessions;
 		
 		foreach ($removed as $className => $session)
 		{

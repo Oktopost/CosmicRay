@@ -6,7 +6,7 @@ use SeTaco\IBrowserSession;
 use CosmicRay\AbstractTestSession;
 
 
-class BrowserSession extends AbstractTestSession
+class BrowserTestSession extends AbstractTestSession
 {
 	public function cleanUpSession(IBrowserSession $session)
 	{

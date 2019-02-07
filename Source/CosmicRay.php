@@ -94,7 +94,7 @@ class CosmicRay
 	}
 	
 	public function skeleton(): Skeleton
-	{
+	{ 
 		return $this->skeleton;
 	}
 	

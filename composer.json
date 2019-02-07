@@ -10,15 +10,20 @@
 			"name": "Alexey Puchkov",
 			"email": "alexey@oktopost.com",
 			"role": "Developer"
+		},
+		{
+			"name": "Daniel Podrabinek",
+			"email": "dpodrabinek@oktopost.com",
+			"role": "Developer"
 		}
 	],
 	"minimum-stability": "stable",
 	"require": 
 	{
 		"unstable-cacao/narrator": "^1.2",
-		"oktopost/se-taco": "dev-master",
+		"oktopost/se-taco": "1.0.14",
 		"phpunit/phpunit": "^7.2",
-		"oktopost/pofig": "^1.0"
+		"oktopost/pofig": "^1.0.4"
 	},
 	"autoload":
 	{
@@ -26,5 +31,14 @@
 		{
 			"CosmicRay\\": "Source/"
 		}
+	},
+	"scripts": {
+		"config": {
+			"process-timeout": 0
+		},
+		"post-install-cmd": [
+			"SeTaco\\Downloads\\ComposerUtils::composerPostInstallHook"
+		],
+		"selenium": "java -Dwebdriver.chrome.driver=\"vendor/bin/chromedriver\" -jar vendor/bin/selenium.jar"
 	}
 }
