@@ -2,11 +2,19 @@
 namespace CosmicRay\Sessions\Dependencies;
 
 
+use CosmicRay\Exceptions\DependencyTree\EmptyNodeNameException;
+use CosmicRay\Exceptions\DependencyTree\CircularDependencyException;
+
+
 class Tree
 {
 	/** @var Node[] */
 	private $nodes;
+	
+	/** @var bool[]  */
 	private $resolved = [];
+	
+	/** @var bool[] */
 	private $unresolved = [];
 	
 	
@@ -46,7 +54,7 @@ class Tree
 				if (isset($this->unresolved[$edge->Name]))
 				{
 					$path = array_merge($this->findPath($edge, $node), [$edge->Name]);
-					throw new \Exception('Circular dependency detected: ' . implode(' -> ', $path));
+					throw new CircularDependencyException('Circular dependency detected: ' . implode(' -> ', $path));
 				}
 				
 				$this->resolveNode($edge);
@@ -65,6 +73,9 @@ class Tree
 	 */
 	public function add(string $name, array $edgeNames = []): Tree
 	{
+		if (!$name)
+			throw new EmptyNodeNameException('Failed to add nameless node');
+		
 		if (!isset($this->nodes[$name]))
 			$this->nodes[$name] = new Node($name);
 		
@@ -93,5 +104,4 @@ class Tree
 		
 		return array_keys($this->resolved);
 	}
-	
 }

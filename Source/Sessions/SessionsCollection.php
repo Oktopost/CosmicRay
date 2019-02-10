@@ -25,7 +25,6 @@ class SessionsCollection implements ISessionCollection
 	private $sessions = [];
 	
 	
-	
 	private function loadDependencies(ITestSession $session, array &$allSessions): void
 	{
 		foreach ($session->dependencies() as $dependency)
