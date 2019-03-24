@@ -137,13 +137,13 @@ class UnitestCase extends TestCase
 	public static function setUpBeforeClass()
 	{
 		parent::tearDownAfterClass();
-		CosmicRay::setupTestSuite(self::class);
+		CosmicRay::setupTestSuite(static::class);
 	}
 	
 	public static function tearDownAfterClass()
 	{
 		parent::tearDownAfterClass();
-		CosmicRay::cleanUpTestSuite(self::class);
+		CosmicRay::cleanUpTestSuite(static::class);
 	}
 	
 	

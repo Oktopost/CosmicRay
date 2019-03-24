@@ -67,6 +67,7 @@ class CosmicRay
 	{
 		$this->skeleton = new Skeleton();
 		$this->narrator = new Narrator();
+		$this->sessions = new SessionsCollection($this->narrator, $this->skeleton);
 		
 		$this->skeleton
 			->enableKnot()

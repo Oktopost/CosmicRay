@@ -90,11 +90,13 @@ class SessionsCollection implements ISessionCollection
 				
 				if (isset($this->sessions[$name]))
 				{
+					$session = $this->sessions[$name];
 					$newSessionsList[$name] = $this->sessions[$name];
 				}
 				else
 				{
-					$newSessionsList[$name] = $this->skeleton->load($session);
+					$session = $this->skeleton->load($session);
+					$newSessionsList[$name] = $session;
 					$this->loadDependencies($session, $newSessionsList);
 				}
 			}

@@ -9,7 +9,7 @@ use CosmicRay\Exceptions\DependencyTree\CircularDependencyException;
 class Tree
 {
 	/** @var Node[] */
-	private $nodes;
+	private $nodes = [];
 	
 	/** @var bool[]  */
 	private $resolved = [];
