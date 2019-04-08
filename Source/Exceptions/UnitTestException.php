@@ -2,7 +2,7 @@
 namespace CosmicRay\Exceptions;
 
 
-class UnitestException extends \Exception
+class UnitTestException extends \Exception
 {
 	
 }

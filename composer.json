@@ -33,6 +33,7 @@
 		}
 	},
 	"scripts": {
+		"test": "./vendor/phpunit/phpunit/phpunit --dont-report-useless-tests",
 		"config": {
 			"process-timeout": 0
 		},

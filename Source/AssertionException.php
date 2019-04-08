@@ -2,10 +2,10 @@
 namespace CosmicRay;
 
 
-use CosmicRay\Exceptions\UnitestException;
+use CosmicRay\Exceptions\UnitTestException;
 
 
-class AssertionException extends UnitestException
+class AssertionException extends UnitTestException
 {
 	/** @var string|null */
 	private $costumeMessage;
