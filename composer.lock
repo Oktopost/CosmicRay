@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e50098fed0aebeccceb339deb1550da8",
+    "content-hash": "a97797894ff55b1cab045941b47fd761",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -347,16 +347,16 @@
         },
         {
             "name": "oktopost/se-taco",
-            "version": "1.0.14",
+            "version": "1.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/SeTaco.git",
-                "reference": "4fba8c6320497fcabc6992a3e2ab3f29780c9420"
+                "reference": "46c25e17676040bb0516bc4b9ed3eecbeff2f35b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/SeTaco/zipball/4fba8c6320497fcabc6992a3e2ab3f29780c9420",
-                "reference": "4fba8c6320497fcabc6992a3e2ab3f29780c9420",
+                "url": "https://api.github.com/repos/Oktopost/SeTaco/zipball/46c25e17676040bb0516bc4b9ed3eecbeff2f35b",
+                "reference": "46c25e17676040bb0516bc4b9ed3eecbeff2f35b",
                 "shasum": ""
             },
             "require": {
@@ -394,7 +394,7 @@
             ],
             "description": "Wrapper for the package facebook/webdriver",
             "homepage": "https://github.com/Oktopost/SeTaco",
-            "time": "2019-02-07T09:11:57+00:00"
+            "time": "2019-06-05T06:13:27+00:00"
         },
         {
             "name": "oktopost/skeleton",
