@@ -37,9 +37,6 @@ class EngineConfig
 		$group = $config->setup()->group('main');
 		$group->addIncludePath($dir);
 		
-		$group = $config->setup()->group('host');
-		$group->addIncludePath(join(DIRECTORY_SEPARATOR, '_host'));
-		
 		$this->config = $config;
 	}
 	

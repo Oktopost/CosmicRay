@@ -53,11 +53,27 @@ class CosmicRay
 	
 	private function getBrowser(): IBrowser
 	{
-		$browser = $this->getBrowserSession()->current();
+		$session = $this->getBrowserSession();
+		$browser = $session->current();
+		
+		if (!$browser && $session->config()->hasTarget('default'))
+		{
+			$session->open('default');
+			$browser = $session->current();
+		}
 		
 		if (!$browser)
 		{
-			throw new CosmicRayException('Browser was not open');
+			if ($session->config()->hasTarget('default'))
+			{
+				$session->open('default');
+			}
+			else
+			{
+				$session->open('http://localhost');
+			}
+			
+			$browser = $session->current();
 		}
 		
 		return $browser;
