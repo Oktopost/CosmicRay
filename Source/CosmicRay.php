@@ -6,8 +6,8 @@ use CosmicRay\Sessions\SessionsCollection;
 use CosmicRay\Wrappers\PHPUnit\UnitestCase;
 use CosmicRay\Exceptions\CosmicRayException;
 
-use SeTaco\DriverConfig;
 use SeTaco\IBrowser;
+use SeTaco\TacoConfig;
 use SeTaco\BrowserSession;
 use SeTaco\IBrowserSession;
 
@@ -45,7 +45,7 @@ class CosmicRay
 		if (!$this->browserSession)
 		{
 			$driver = $this->config('web-driver');
-			$this->browserSession = new BrowserSession(DriverConfig::parse($driver));
+			$this->browserSession = new BrowserSession(TacoConfig::parse($driver));
 		}
 		
 		return $this->browserSession;
