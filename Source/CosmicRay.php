@@ -6,6 +6,7 @@ use CosmicRay\Sessions\SessionsCollection;
 use CosmicRay\Wrappers\PHPUnit\UnitestCase;
 use CosmicRay\Exceptions\CosmicRayException;
 
+use SeTaco\Config\KeywordsConfig;
 use SeTaco\IBrowser;
 use SeTaco\TacoConfig;
 use SeTaco\BrowserSession;
@@ -39,13 +40,20 @@ class CosmicRay
 	/** @var IBrowserSession|null */
 	private $browserSession = null;
 	
+	/** @var KeywordsConfig */
+	private $keywords;
+	
 	
 	private function getBrowserSession(): IBrowserSession
 	{
 		if (!$this->browserSession)
 		{
 			$driver = $this->config('web-driver');
-			$this->browserSession = new BrowserSession(TacoConfig::parse($driver));
+			
+			$config = TacoConfig::parse($driver);
+			$config->Keywords = $this->keywords;
+			
+			$this->browserSession = new BrowserSession($config);
 		}
 		
 		return $this->browserSession;
@@ -79,8 +87,11 @@ class CosmicRay
 		return $browser;
 	}
 	
+	
 	public function __construct()
 	{
+		$this->keywords = new KeywordsConfig();
+		
 		$this->skeleton = new Skeleton();
 		$this->narrator = new Narrator();
 		$this->sessions = new SessionsCollection($this->narrator, $this->skeleton);
@@ -126,6 +137,22 @@ class CosmicRay
 			throw new CosmicRayException('Configuration was not setup');
 		
 		return $this->config->get($name);
+	}
+	
+	public function keywords(): KeywordsConfig
+	{
+		return $this->keywords;
+	}
+	
+	
+	public static function browser(): IBrowser
+	{
+		return CosmicRay::instance()->skeleton()->get(IBrowser::class);
+	}
+	
+	public static function browserSession(): IBrowserSession
+	{
+		return CosmicRay::instance()->skeleton()->get(IBrowserSession::class);
 	}
 	
 	
