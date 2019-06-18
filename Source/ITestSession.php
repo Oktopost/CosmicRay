@@ -14,7 +14,7 @@ interface ITestSession
 	 * @method void setupSession(...$params);
 	 * @method void cleanUpSession(...$params);
 	 * 
-	 * @method void openBrowser(string $name, IBrowser $browser, ...$params);
+	 * @method void openBrowser(IBrowser $browser, ...$params);
 	 * 
 	 * @method void setupTestSuite(UnitestCase $instance, string $method, ...$params); 
 	 * @method void setupTest(UnitestCase $instance, string $method, ...$params);

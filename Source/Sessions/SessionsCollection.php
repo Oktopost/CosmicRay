@@ -203,9 +203,9 @@ class SessionsCollection implements ISessionCollection
 	}
 	
 	
-	public function openBrowser(string $name, IBrowser $browser): void
+	public function openBrowser(IBrowser $browser): void
 	{
-		$this->invokeOnAll(__FUNCTION__, $name, $browser);
+		$this->invokeOnAll(__FUNCTION__, $browser);
 	}
 	
 	public function setupTestSuite(string $caseName): void
