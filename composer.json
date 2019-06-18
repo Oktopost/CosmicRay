@@ -21,7 +21,7 @@
 	"require": 
 	{
 		"unstable-cacao/narrator": "^1.2",
-		"oktopost/se-taco": "1.0.16",
+		"oktopost/se-taco": "1.0.17",
 		"phpunit/phpunit": "^7.2",
 		"oktopost/pofig": "^1.0.4"
 	},
