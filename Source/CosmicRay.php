@@ -64,12 +64,6 @@ class CosmicRay
 		$session = $this->getBrowserSession();
 		$browser = $session->current();
 		
-		if (!$browser && $session->config()->hasTarget('default'))
-		{
-			$session->open('default');
-			$browser = $session->current();
-		}
-		
 		if (!$browser)
 		{
 			if ($session->config()->hasTarget('default'))
@@ -82,6 +76,8 @@ class CosmicRay
 			}
 			
 			$browser = $session->current();
+			
+			$this->sessions->openBrowser($browser);
 		}
 		
 		return $browser;
