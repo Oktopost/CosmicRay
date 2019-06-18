@@ -100,7 +100,6 @@ class CosmicRay
 			->enableKnot()
 			->useGlobal();
 		
-		$this->skeleton->set(INarrator::class,			$this->narrator);
 		$this->skeleton->set(Skeleton::class,			$this->skeleton);
 		$this->skeleton->set(IBrowserSession::class,	function() { return $this->getBrowserSession(); });
 		$this->skeleton->set(IBrowser::class,			function () { return $this->getBrowser(); });
@@ -113,6 +112,8 @@ class CosmicRay
 				$this->narrator->invokeMethodIfExists($component, 'init');
 				return $component;
 			});
+		
+		$this->narrator->params()->byType(INarrator::class, function() { return $this->narrator; });
 	}
 	
 	

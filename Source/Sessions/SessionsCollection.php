@@ -137,7 +137,7 @@ class SessionsCollection implements ISessionCollection
 	
 	private function invokeOnSession(ITestSession $session, string $method, ...$params): void
 	{
-		$narrator = $this->getNarratorForParams($params);
+		$narrator = $this->getNarratorForParams(...$params);
 		$narrator->invokeMethodIfExists($session, $method);
 	}
 	
@@ -148,7 +148,7 @@ class SessionsCollection implements ISessionCollection
 	 */
 	private function invokeOnSet(array $sessions, string $method, ...$params): void
 	{
-		$narrator = $this->getNarratorForParams($params);
+		$narrator = $this->getNarratorForParams(...$params);
 		
 		foreach ($sessions as $session)
 		{
