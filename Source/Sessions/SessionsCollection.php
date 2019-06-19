@@ -110,7 +110,7 @@ class SessionsCollection implements ISessionCollection
 		
 		foreach ($toLoadNames as $name)
 		{
-			$result[] = $newSessionsList[$name];
+			$result[$name] = $newSessionsList[$name];
 		}
 		
 		return $result;
