@@ -29,7 +29,7 @@ class SessionsCollection implements ISessionCollection
 	{
 		foreach ($session->dependencies() as $dependency)
 		{
-			$name = get_class($dependency);
+			$name = is_string($dependency) ? $dependency : get_class($dependency);
 			
 			if (isset($allSessions[$name]))
 				continue;
@@ -74,8 +74,11 @@ class SessionsCollection implements ISessionCollection
 	 */
 	private function getOrderedList(array $sessions): array
 	{
+		$sessions = array_unique($sessions, SORT_STRING);
+		
 		$newSessionsList = [];
 		$tree = new Tree();
+		$t = $this->sessions;
 		
 		foreach ($sessions as $session)
 		{
@@ -97,8 +100,9 @@ class SessionsCollection implements ISessionCollection
 				{
 					$session = $this->skeleton->load($session);
 					$newSessionsList[$name] = $session;
-					$this->loadDependencies($session, $newSessionsList);
 				}
+				
+				$this->loadDependencies($session, $newSessionsList);
 			}
 			
 			$tree->add($name, $this->getNames($session->dependencies()));
