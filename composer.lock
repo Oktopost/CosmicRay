@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f4d76e25a785e949ef0773c5cc5386c",
+    "content-hash": "f79c2b1c418f422b09dd87c6219bdd5a",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -349,16 +349,16 @@
         },
         {
             "name": "oktopost/se-taco",
-            "version": "1.0.17",
+            "version": "1.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/SeTaco.git",
-                "reference": "1dbcde0dad0612db52b8a069165b9f45e9645532"
+                "reference": "fbe58512f25e33ae66f03d4bd6f1b971a05616a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/SeTaco/zipball/1dbcde0dad0612db52b8a069165b9f45e9645532",
-                "reference": "1dbcde0dad0612db52b8a069165b9f45e9645532",
+                "url": "https://api.github.com/repos/Oktopost/SeTaco/zipball/fbe58512f25e33ae66f03d4bd6f1b971a05616a3",
+                "reference": "fbe58512f25e33ae66f03d4bd6f1b971a05616a3",
                 "shasum": ""
             },
             "require": {
@@ -396,20 +396,20 @@
             ],
             "description": "Wrapper for the package facebook/webdriver",
             "homepage": "https://github.com/Oktopost/SeTaco",
-            "time": "2019-06-18T13:42:16+00:00"
+            "time": "2019-06-27T05:29:12+00:00"
         },
         {
             "name": "oktopost/skeleton",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/Skeleton.git",
-                "reference": "d00650800d2049b2d20bfd0ba1585bec17769cc7"
+                "reference": "281b4a2e7c831931a1a7c9f745f0b26d7de02c5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/Skeleton/zipball/d00650800d2049b2d20bfd0ba1585bec17769cc7",
-                "reference": "d00650800d2049b2d20bfd0ba1585bec17769cc7",
+                "url": "https://api.github.com/repos/Oktopost/Skeleton/zipball/281b4a2e7c831931a1a7c9f745f0b26d7de02c5b",
+                "reference": "281b4a2e7c831931a1a7c9f745f0b26d7de02c5b",
                 "shasum": ""
             },
             "require": {
@@ -442,7 +442,7 @@
             ],
             "description": "Inversion of Control library",
             "homepage": "https://github.com/Oktopost/Skeleton",
-            "time": "2019-05-16T04:57:35+00:00"
+            "time": "2019-06-16T05:20:57+00:00"
         },
         {
             "name": "oktopost/unit-cover",
@@ -1043,16 +1043,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.12",
+            "version": "7.5.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c"
+                "reference": "b9278591caa8630127f96c63b598712b699e671c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c",
-                "reference": "9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b9278591caa8630127f96c63b598712b699e671c",
+                "reference": "b9278591caa8630127f96c63b598712b699e671c",
                 "shasum": ""
             },
             "require": {
@@ -1123,7 +1123,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-05-28T11:59:40+00:00"
+            "time": "2019-06-19T12:01:51+00:00"
         },
         {
             "name": "predis/predis",
@@ -1801,7 +1801,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.3.1",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -1965,16 +1965,16 @@
         },
         {
             "name": "unstable-cacao/structura",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/unstable-cacao/Structura.git",
-                "reference": "5dd33b109ba18b68952a24109dec4fb8d079098d"
+                "reference": "628e55939410c1800c214a7b3d4eb5bc176f22b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unstable-cacao/Structura/zipball/5dd33b109ba18b68952a24109dec4fb8d079098d",
-                "reference": "5dd33b109ba18b68952a24109dec4fb8d079098d",
+                "url": "https://api.github.com/repos/unstable-cacao/Structura/zipball/628e55939410c1800c214a7b3d4eb5bc176f22b4",
+                "reference": "628e55939410c1800c214a7b3d4eb5bc176f22b4",
                 "shasum": ""
             },
             "require": {
@@ -2004,7 +2004,7 @@
                 }
             ],
             "homepage": "https://github.com/unstable-cacao/Structura",
-            "time": "2019-04-21T11:44:00+00:00"
+            "time": "2019-07-05T17:07:32+00:00"
         },
         {
             "name": "unstable-cacao/traitor",
