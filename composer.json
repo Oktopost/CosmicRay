@@ -1,6 +1,6 @@
 {
 	"name": "oktopost/cosmic-ray",
-    "description": "",
+	"description": "",
 	"type": "library",
 	"license": "MIT",
 	"homepage": "https://github.com/Oktopost/CosmicRay",
@@ -21,7 +21,7 @@
 	"require": 
 	{
 		"unstable-cacao/narrator": "^1.2",
-		"oktopost/se-taco": "^1.0",
+		"oktopost/se-taco": "^1.1",
 		"phpunit/phpunit": "^7.2",
 		"oktopost/pofig": "^1.0.4"
 	},
@@ -32,17 +32,21 @@
 			"CosmicRay\\": "Source/"
 		}
 	},
-	"scripts": {
+	"scripts":
+	{
 		"test": "./vendor/phpunit/phpunit/phpunit --dont-report-useless-tests",
-		"config": {
+		"config":
+		{
 			"process-timeout": 0
 		},
-		"post-install-cmd": [
+		"post-install-cmd": 
+		[
 			"SeTaco\\Downloads\\ComposerUtils::composerPostInstallHook"
 		],
 		"selenium": "java -Dwebdriver.chrome.driver=\"vendor/bin/chromedriver\" -jar vendor/bin/selenium.jar"
 	},
-	"config": {
+	"config":
+	{
 		"process-timeout": 0
 	}
 }

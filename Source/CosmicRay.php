@@ -40,9 +40,6 @@ class CosmicRay
 	/** @var IBrowserSession|null */
 	private $browserSession = null;
 	
-	/** @var KeywordsConfig */
-	private $keywords;
-	
 	
 	private function getBrowserSession(): IBrowserSession
 	{
@@ -51,8 +48,6 @@ class CosmicRay
 			$driver = $this->config('web-driver');
 			
 			$config = TacoConfig::parse($driver);
-			$config->Keywords = $this->keywords;
-			
 			$this->browserSession = new BrowserSession($config);
 		}
 		
@@ -86,8 +81,6 @@ class CosmicRay
 	
 	public function __construct()
 	{
-		$this->keywords = new KeywordsConfig();
-		
 		$this->skeleton = new Skeleton();
 		$this->narrator = new Narrator();
 		$this->sessions = new SessionsCollection($this->narrator, $this->skeleton);
@@ -134,11 +127,6 @@ class CosmicRay
 			throw new CosmicRayException('Configuration was not setup');
 		
 		return $this->config->get($name);
-	}
-	
-	public function keywords(): KeywordsConfig
-	{
-		return $this->keywords;
 	}
 	
 	
