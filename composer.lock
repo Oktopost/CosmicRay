@@ -349,16 +349,16 @@
         },
         {
             "name": "oktopost/se-taco",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Oktopost/SeTaco.git",
-                "reference": "cb16c8a69fbd89c8333851164136f92549338b47"
+                "reference": "fa42f3efe006cffb6e7ec02e103b2d4b64697503"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Oktopost/SeTaco/zipball/cb16c8a69fbd89c8333851164136f92549338b47",
-                "reference": "cb16c8a69fbd89c8333851164136f92549338b47",
+                "url": "https://api.github.com/repos/Oktopost/SeTaco/zipball/fa42f3efe006cffb6e7ec02e103b2d4b64697503",
+                "reference": "fa42f3efe006cffb6e7ec02e103b2d4b64697503",
                 "shasum": ""
             },
             "require": {
@@ -385,18 +385,18 @@
             "authors": [
                 {
                     "name": "Alexey Puchkov",
-                    "email": "alexey@oktopost.com",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "alexey@oktopost.com"
                 },
                 {
                     "name": "Daniel Podrabinek",
-                    "email": "dpodrabinek@oktopost.com",
-                    "role": "Developer"
+                    "role": "Developer",
+                    "email": "dpodrabinek@oktopost.com"
                 }
             ],
             "description": "Wrapper for the package facebook/webdriver",
             "homepage": "https://github.com/Oktopost/SeTaco",
-            "time": "2019-07-18T07:34:44+00:00"
+            "time": "2019-07-21T06:49:54+00:00"
         },
         {
             "name": "oktopost/skeleton",
