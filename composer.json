@@ -34,14 +34,14 @@
 	},
 	"scripts":
 	{
-		"test": "./vendor/phpunit/phpunit/phpunit --dont-report-useless-tests",
+		"test": "SeTaco\\Utils\\Test::test",
 		"config":
 		{
 			"process-timeout": 0
 		},
 		"post-install-cmd": 
 		[
-			"SeTaco\\Downloads\\ComposerUtils::composerPostInstallHook"
+			"SeTaco\\Utils\\ComposerUtils::composerPostInstallHook"
 		],
 		"selenium": "java -Dwebdriver.chrome.driver=\"vendor/bin/chromedriver\" -jar vendor/bin/selenium.jar"
 	},
