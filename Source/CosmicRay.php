@@ -5,6 +5,7 @@ namespace CosmicRay;
 use CosmicRay\Sessions\SessionsCollection;
 use CosmicRay\Wrappers\PHPUnit\UnitestCase;
 use CosmicRay\Exceptions\CosmicRayException;
+use CosmicRay\Exceptions\UndefinedTargetException;
 
 use SeTaco\Config\KeywordsConfig;
 use SeTaco\IBrowser;
@@ -40,6 +41,8 @@ class CosmicRay
 	/** @var IBrowserSession|null */
 	private $browserSession = null;
 	
+	private $currentTarget	= 'default';
+	
 	
 	private function getBrowserSession(): IBrowserSession
 	{
@@ -57,23 +60,19 @@ class CosmicRay
 	private function getBrowser(): IBrowser
 	{
 		$session = $this->getBrowserSession();
-		$browser = $session->current();
-		
-		if (!$browser)
+				
+		if (!$session->config()->hasTarget($this->currentTarget))
 		{
-			$target = getenv('TARGET') ?? 'default';
-			
-			if ($session->config()->hasTarget($target))
-			{
-				$session->open($target);
-			}
-			else
-			{
-				$session->open('http://localhost');
-			}
-			
-			$browser = $session->current();
-			
+			throw new UndefinedTargetException($this->currentTarget);
+		}
+		
+		if ($session->hasBrowser($this->currentTarget))
+		{
+			$browser = $session->getBrowser($this->currentTarget);
+		}
+		else
+		{
+			$browser = $session->open($this->currentTarget);
 			$this->sessions->openBrowser($browser);
 		}
 		
@@ -114,7 +113,7 @@ class CosmicRay
 	}
 	
 	public function skeleton(): Skeleton
-	{ 
+	{
 		return $this->skeleton;
 	}
 	
@@ -129,6 +128,11 @@ class CosmicRay
 			throw new CosmicRayException('Configuration was not setup');
 		
 		return $this->config->get($name);
+	}
+	
+	public function setTarget(string $target): void
+	{
+		$this->currentTarget = $target;
 	}
 	
 	
