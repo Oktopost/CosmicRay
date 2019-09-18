@@ -61,9 +61,11 @@ class CosmicRay
 		
 		if (!$browser)
 		{
-			if ($session->config()->hasTarget('default'))
+			$target = getenv('TARGET') ?? 'default';
+			
+			if ($session->config()->hasTarget($target))
 			{
-				$session->open('default');
+				$session->open($target);
 			}
 			else
 			{
