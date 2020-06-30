@@ -22,7 +22,7 @@ class UnitestCase extends TestCase
 		
 		$returnType = $method->getReturnType();
 		
-		if (!$returnType || (string)($parameter->getType()) != (string)$returnType)
+		if (!$returnType || $parameter->getType()->getName() != $returnType->getName())
 			return false;
 		
 		$parentClass = $method->getDeclaringClass();
@@ -55,7 +55,7 @@ class UnitestCase extends TestCase
 	{
 		$isFound	= false;
 		$self		= new \ReflectionClass($this);
-		$paramType	= (string)$parameter->getType();
+		$paramType	= $parameter->getType()->getName();
 		
 		if ($parameter->isOptional())
 		{
