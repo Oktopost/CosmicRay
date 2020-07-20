@@ -109,7 +109,7 @@ class UnitestCase extends TestCase
 		if ($this->narrator)
 			return $this->narrator;
 		
-		$this->narrator = CosmicRay::instance()->narrator();
+		$this->narrator = clone CosmicRay::instance()->narrator();
 		$this->narrator = $this->setupNarrator($this->narrator);
 		
 		return $this->narrator;
